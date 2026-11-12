@@ -1,0 +1,12 @@
+# Don't want to be shown in the ownCloud sky? Add your GitHub handle below.
+#
+# - One handle per line, exactly as on GitHub (upper/lower case doesn't matter, a leading @ is fine).
+# - Lines starting with # are ignored, so you can add a note after a # if you like.
+# - Your star stays (so the totals don't change) but becomes anonymous: no name, avatar,
+#   search entry, personal story or chapter mention. It takes effect with the next deploy.
+#
+# Example (remove the leading "# " to make it count):
+# octocat
+# @octocat   # same thing, the @ is optional
+#
+# Add your handle below this line:

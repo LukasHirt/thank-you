@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>Thank you · the ownCloud sky</title>
+    <meta
+      name="description"
+      content="Every star is a person who helped build ownCloud. A thank-you to the whole community, and to you."
+    />
+    <meta property="og:title" content="Thank you · the ownCloud sky" />
+    <meta
+      property="og:description"
+      content="Every star is a person who helped build ownCloud. Find yours."
+    />
+    <meta property="og:image" content="og.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="theme-color" content="#02050d" />
+    <link
+      rel="icon"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='5' fill='%23ffcb6b'/%3E%3Cpath d='M16 2v28M2 16h28' stroke='%23ffcb6b' stroke-width='1.2' opacity='.6'/%3E%3C/svg%3E"
+    />
+  </head>
+  <body>
+    <div id="sky" aria-hidden="true"></div>
+    <div id="labels" aria-hidden="true"></div>
+
+    <header class="top">
+      <p class="mark">ownCloud, with gratitude</p>
+      <form class="search" role="search" autocomplete="off">
+        <label class="sr-only" for="q">Find a contributor by GitHub handle</label>
+        <input
+          id="q"
+          type="search"
+          placeholder="Find your star"
+          spellcheck="false"
+          aria-autocomplete="list"
+          aria-controls="results"
+        />
+        <ul id="results" role="listbox" hidden></ul>
+      </form>
+    </header>
+
+    <div class="year" aria-live="off">
+      <span id="year">2010</span
+      ><span class="count"
+        ><span id="count">0 contributors</span><small id="count-dust"></small
+      ></span>
+    </div>
+    <section id="beat" class="beat" hidden aria-live="polite"></section>
+
+    <section id="intro" class="intro">
+      <h1>In 2010, the sky was still dark.</h1>
+      <p>Every point of light in this sky is a person who helped build ownCloud.</p>
+    </section>
+
+    <section id="finale" class="finale" hidden aria-labelledby="finale-title">
+      <h1 id="finale-title">Thank you, all <span data-t="people"></span> of you.</h1>
+      <p class="finale-sub">
+        For every line of code, every review, every bug report, every translation and every late
+        night. This is what you built together.
+      </p>
+      <dl class="totals">
+        <div>
+          <dt data-t="commits"></dt>
+          <dd>commits</dd>
+        </div>
+        <div>
+          <dt data-t="prs"></dt>
+          <dd>pull requests</dd>
+        </div>
+        <div>
+          <dt data-t="reviews"></dt>
+          <dd>reviews</dd>
+        </div>
+        <div>
+          <dt data-t="issues"></dt>
+          <dd>issues reported</dd>
+        </div>
+        <div>
+          <dt data-t="repos"></dt>
+          <dd>repositories</dd>
+        </div>
+        <div>
+          <dt data-t="years"></dt>
+          <dd>years</dd>
+        </div>
+      </dl>
+      <p class="finale-note">
+        Translators brought ownCloud to <strong data-t="languages"></strong> languages, each at
+        least half translated. Your names live in Transifex rather than in git, so here you shine
+        together, as the whole sky.
+      </p>
+      <p class="finale-note">
+        And the world pulled what you built <strong data-t="pulls"></strong> times from Docker Hub
+        alone.
+      </p>
+      <div class="finale-actions">
+        <button type="button" class="primary" data-act="find">Find your star</button>
+        <button type="button" data-act="explore">Explore the sky</button>
+        <button type="button" data-act="replay">Watch again</button>
+      </div>
+    </section>
+
+    <div id="tooltip" class="tooltip" hidden></div>
+    <div id="chip" class="chip" hidden></div>
+
+    <section id="story" class="story" hidden tabindex="-1" aria-label="Your story"></section>
+
+    <footer class="dock">
+      <button type="button" id="play" class="round" aria-label="Pause">
+        <svg viewBox="0 0 20 20" aria-hidden="true">
+          <path class="i-pause" d="M6 4h3v12H6zM11 4h3v12h-3z" />
+          <path class="i-play" d="M6 4l10 6-10 6z" />
+        </svg>
+      </button>
+      <div id="timeline" class="timeline">
+        <canvas tabindex="0" role="slider" aria-label="Time" aria-valuemin="0"></canvas>
+      </div>
+      <button
+        type="button"
+        id="sound"
+        class="round"
+        aria-pressed="false"
+        aria-label="Turn sound on"
+      >
+        <svg viewBox="0 0 20 20" aria-hidden="true">
+          <path d="M3 8h3l4-3v10l-4-3H3z" />
+          <path
+            class="i-wave"
+            d="M13 7.5c1.2 1.4 1.2 3.6 0 5M15.2 5.5c2.3 2.6 2.3 6.4 0 9"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.4"
+            stroke-linecap="round"
+          />
+          <path
+            class="i-mute"
+            d="M13 7l5 6M18 7l-5 6"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.4"
+            stroke-linecap="round"
+          />
+        </svg>
+      </button>
+      <button type="button" id="about-btn" class="round" aria-label="About this sky">?</button>
+    </footer>
+
+    <dialog id="about">
+      <h2>About this sky</h2>
+      <p>
+        Each star is a person who contributed to one of the <span data-t="repos"></span> public
+        repositories of the
+        <a href="https://github.com/owncloud" target="_blank" rel="noopener">owncloud</a> and
+        <a href="https://github.com/owncloud-docker" target="_blank" rel="noopener"
+          >owncloud-docker</a
+        >
+        organizations on GitHub. A star lights up on the day of that person’s first commit, pull
+        request, review or issue. Its constellation is the project they worked on most.
+      </p>
+      <p>
+        Brighter stars are people with code contributions: commits, pull requests and reviews. The
+        fainter stardust is people who reported issues. Stars without a name belong to contributors
+        whose commits aren’t linked to a GitHub account.
+      </p>
+      <p>
+        Only public data is used. No email addresses are published. Automated accounts (bots) are
+        left out. A few repositories began as copies of other open-source projects. For those, only
+        the work done after they became part of ownCloud is counted.
+      </p>
+      <p>
+        <strong>Don’t want to be shown?</strong> Open an issue or add your handle to
+        <code>optout.txt</code> in the
+        <a
+          id="repo-link"
+          href="https://github.com/LukasHirt/owncloud-thank-you"
+          target="_blank"
+          rel="noopener"
+          >repository of this page</a
+        >, and your star will become anonymous with the next update of the page.
+      </p>
+      <p class="muted">Data as of <span data-t="date"></span>.</p>
+      <form method="dialog"><button>Close</button></form>
+    </dialog>
+
+    <div class="toast" role="status"></div>
+    <noscript><p class="fallback">This thank-you needs JavaScript to draw the sky.</p></noscript>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

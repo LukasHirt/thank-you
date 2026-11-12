@@ -1,0 +1,17 @@
+{
+  "extends": "@ownclouders/tsconfig",
+  "compilerOptions": {
+    "strict": true,
+    "noUncheckedIndexedAccess": false,
+    "noImplicitOverride": true,
+    "noFallthroughCasesInSwitch": true,
+    "noEmit": true,
+    "module": "preserve",
+    "moduleResolution": "bundler",
+    "allowImportingTsExtensions": true,
+    "erasableSyntaxOnly": true,
+    "verbatimModuleSyntax": true,
+    "types": ["node", "vite-plus/client"]
+  },
+  "include": ["src", "pipeline", "tests", "vite.config.ts", "playwright.config.ts"]
+}

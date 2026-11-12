@@ -1,0 +1,10 @@
+[
+  {
+    "date": "2026-11-12",
+    "pulls": {
+      "owncloud/server": 33215504,
+      "owncloud/ocis": 2707048,
+      "owncloud/ocis-rolling": 309884
+    }
+  }
+]

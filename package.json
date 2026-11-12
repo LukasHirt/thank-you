@@ -1,0 +1,41 @@
+{
+  "name": "thank-you",
+  "private": true,
+  "description": "An interactive thank-you to everyone who built ownCloud",
+  "license": "Apache-2.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vp dev",
+    "build": "node pipeline/apply-optout.ts && vp build",
+    "preview": "vp preview",
+    "check": "vp check",
+    "lint": "vp lint",
+    "fmt": "vp fmt",
+    "test": "vp test run",
+    "data:clone": "node pipeline/01-clone.ts",
+    "data:api": "node pipeline/02-api.ts",
+    "data:commits": "node pipeline/03-commits.ts",
+    "data:identities": "node pipeline/04-identities.ts",
+    "data:extras": "node pipeline/05-extras.ts",
+    "data:build": "node pipeline/06-build.ts && node pipeline/apply-optout.ts",
+    "optout": "node pipeline/apply-optout.ts",
+    "test:e2e": "playwright test"
+  },
+  "dependencies": {
+    "@fontsource-variable/fraunces": "^5.3.0",
+    "@fontsource-variable/hanken-grotesk": "^5.3.0",
+    "three": "^0.187.0"
+  },
+  "devDependencies": {
+    "@ownclouders/tsconfig": "^0.0.7",
+    "@playwright/test": "^1.65.0",
+    "@types/node": "^26.6.6",
+    "@types/three": "^0.187.0",
+    "typescript": "^7.0.2",
+    "vite-plus": "^1.6.0"
+  },
+  "engines": {
+    "node": ">=26"
+  },
+  "packageManager": "pnpm@11.15.1"
+}

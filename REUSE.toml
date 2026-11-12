@@ -1,0 +1,9 @@
+version = 1
+SPDX-PackageName = "ownCloud thank-you"
+SPDX-PackageDownloadLocation = "https://github.com/LukasHirt/thank-you"
+
+[[annotations]]
+path = "**"
+precedence = "aggregate"
+SPDX-FileCopyrightText = "ownCloud GmbH - A Kiteworks Company and ownCloud contributors"
+SPDX-License-Identifier = "Apache-2.0"
