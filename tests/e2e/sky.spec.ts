@@ -188,6 +188,7 @@ test.describe('scrubbing the timeline', () => {
     await page.keyboard.press('ArrowRight')
     await page.keyboard.press('ArrowRight')
     await expect(page.locator('body')).not.toHaveClass(/playing/)
-    await expect(page.locator('body')).toHaveClass(/playing/, { timeout: 2000 })
+    // generous: CI renders WebGL in software, so frames (and timers behind them) are slow
+    await expect(page.locator('body')).toHaveClass(/playing/, { timeout: 10_000 })
   })
 })
